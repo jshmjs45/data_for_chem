@@ -2,18 +2,18 @@
 Data for our paper "Chemical Reaction Practicality Judgment via Deep Symbol Artificial Intelligence".
 
  1. [original_data](https://github.com/jshmjs45/data_for_science/tree/master/original_data)
- 2. [data\\_for\\_practicality\\_judgment](https://github.com/jshmjs45/data_for_science/tree/master/data_for_practicality_judgment)
+ 2. [data\_for\_practicality\_judgment](https://github.com/jshmjs45/data_for_science/tree/master/data_for_practicality_judgment)
 
 All files are encoded in UTF-8 without Byte Order Mark (BOM).
 
 ## 1.1 original\_data
 This zipped file includes three files:
 
-1. [data\\_from\\_USPTO\\_utf8](https://github.com/jshmjs45/data_for_science/blob/master/original_data/data_from_USPTO_utf8.tar.gz)
-2. [data\\_from\\_CJHIF\\_utf8](https://github.com/jshmjs45/data_for_science/blob/master/original_data/data_from_CJHIF_utf8.tar.gz)
-3. [data\\_from\\_ChemicalAI\\_Rule\\_utf8](https://github.com/jshmjs45/data_for_science/blob/master/original_data/data_from_ChemicalAI_Rule_utf8.tar.gz)
-4. [data\\_from\\_ChemicalAI\\_Real\\_1\\_utf8](https://github.com/jshmjs45/data_for_science/blob/master/original_data/data_from_ChemicalAI_Real_1_utf8.tar.gz)
-5. [data\\_from\\_ChemicalAI\\_Real\\_2\\_utf8](https://github.com/jshmjs45/data_for_science/blob/master/original_data/data_from_ChemicalAI_Real_2_utf8.tar.gz)
+1. [data\_from\_USPTO\_utf8](https://github.com/jshmjs45/data_for_science/blob/master/original_data/data_from_USPTO_utf8.tar.gz)
+2. [data\_from\_CJHIF\_utf8](https://github.com/jshmjs45/data_for_science/blob/master/original_data/data_from_CJHIF_utf8.tar.gz)
+3. [data\_from\_ChemicalAI\_Rule\_utf8](https://github.com/jshmjs45/data_for_science/blob/master/original_data/data_from_ChemicalAI_Rule_utf8.tar.gz)
+4. [data\_from\_ChemicalAI\_Real\_1\_utf8](https://github.com/jshmjs45/data_for_science/blob/master/original_data/data_from_ChemicalAI_Real_1_utf8.tar.gz)
+5. [data\_from\_ChemicalAI\_Real\_2\_utf8](https://github.com/jshmjs45/data_for_science/blob/master/original_data/data_from_ChemicalAI_Real_2_utf8.tar.gz)
 
 
 ### 1.1.1 data\_from\_USPTO_utf8 
