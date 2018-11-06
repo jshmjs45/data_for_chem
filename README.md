@@ -264,6 +264,6 @@ parser.add_argument('--data', dest='data', type=str, default="0802-error-rule/")
 Example: `python class_siamese_final.py --data data/USPTO --folder USPTO_judge`
 
 If GPU is availble, then add the script in front: ``CUDA_VISIBLE_DEVICES = the GPU id
-CUDA_VISIBLE_DEVICES = 0 python judge.py --data data/USPTO --folder USPTO_judge``
+CUDA_VISIBLE_DEVICES = 0 python class_siamese_final.py --data data/USPTO_Rule --folder USPTO_Rule``
 
 Then the terminal will show the training and evaluation results.
