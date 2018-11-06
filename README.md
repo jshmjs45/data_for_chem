@@ -103,3 +103,167 @@ training set and test set. The data format is
 | -------- | --------- | ------- | ------- |
 | Positive | 217,799   | 24,200  | 90,221  |
 | Negative | 24,421    |2,713    | 9,779   |
+
+
+# 2 codes\_for\_science
+Code instruction accompanying the paper **When SMILES smiles, yield prediction of organic reaction via deep chemical language processing**
+
+## 2.0 Requirments
+
+These is no restriction on the system, like windows or linux.
+
+The followings are runtime requirements:
+
+python 2.7 or 3.6
+
+keras 1.2.0
+
+We strongly suggest you to use <code>[conda](https://www.anaconda.com/download/)</code> to control the virtual environment.
+
+You can install the packages by `pip install package_name`.
+
+
+## 2.1 Codes for data preprocessing
+1. convert_file.py 
+2. clear_file.py
+3. select_file.py
+4. combine_files.py
+
+### 2.1.1 convert_file.py 
+We canonicalize data without atom mappings by using this code.
+
+The parameters are as follows:
+
+**--mode** 0:CJHIF 1:USPTO 2:Chemical.AI
+
+**--file** input file path
+
+Usage: `python convert_file.py [--mode MODE] [--file FILE]`
+
+### 2.1.2 clear_file.py 
+The converted file is cleared by using this coede.
+
+The parameters are as follows:
+
+**--mode** 0:CJHIF 1:USPTO 2:Chemical.AI
+
+**--file** input file path
+
+Usage: `python clear_file.py [--mode MODE] [--file FILE]`
+
+### 2.1.3 slelct_file.py 
+The cleared file is split into train set and test set by using this code.
+
+The parameters are as follows:
+
+**--per** the ratio of the test set (%)
+
+**--file** input file path
+
+Usage: `python clear_file.py [--per PER] [--file FILE]`
+
+### 2.1.4 combine_files.py
+
+This code combines the positive data and negetive data and split the combined file into train set and test set. 
+
+**--per** the ratio of the test set (%)
+
+**--file1** positive file path
+
+**--file2** negative file path
+
+Usage: `python clear_file.py [--per PER] [--file1 FILE1] [--file2 FILE2]`
+
+
+
+
+
+
+## 2.2 Data Formatting and Embedding Generating
+
+After Unsupervised Tokenization and Reaction Step Generation, we use `myio.py` to format the input data to fed to the neural network.
+
+In the output directory specified in `myio.py` (for example, `data/USPTO`), we obtain the formatted data vocabulary  with two folders, **train/** and **test/** which contain input sequences for training and evaluation . 
+
+The output folder structure is as follows:
+
+```
+data/USPTO/
+    --vocabulary
+    --train/
+        --reactant
+    	--product
+    	--condition
+    	--step
+    	--label (for Practicality Judgment)
+    	--rate (for Yield Prediction)
+    --test/
+    	--reactant
+    	--product
+    	--condition
+    	--step
+    	--label (for Practicality Judgment)
+    	--rate (for Yield Prediction)
+```
+
+The parameters are as follows:
+
+**--folder** the top directory of the data to process
+
+**--mode**  0:CHIJF 1:USPTO
+
+**--seg**   segementation method
+
+**--iter**  number of times to run
+
+**--size**  dimensions in embedding
+
+The default setting is shown as follows.
+```
+parser.add_argument('--mode', dest='mode', type=int, default=0, help='0:CJHIF 1:USPTO')    				
+parser.add_argument('--folder', dest='folder', type=str, default="/data/CJHIF")
+parser.add_argument('--seg', dest='seg', type=str, default='dlg') 		
+parser.add_argument('--iter', dest='iter', type=int, default=10, help='number of times to run')
+parser.add_argument('--size', dest='size', type=int, default=100, help='dimensions in embedding')
+```
+Example: `python myio.py --folder folder_name`
+
+## 2.3 Practicality Judgment
+
+For Practicality Judgment, we exectute `class_siamese_final.py`.
+
+The parameters are as follows:
+
+**--data**  the top directory of the processed data after data formatting (for example, `data/USPTO`)
+
+**--folder** where you want to save the models and logs in each epoch
+
+**--epochs** max epoch for training
+
+**--dim** hidden dimmension for the Siamese Network
+
+**--maxlen** the specified max length for input sequences (truncating or zero-padding when needed)
+
+**--mode** 0 : using all features, 1: remove steps, 2: remove reaction conditions, 3: remove steps and conditions
+
+The default setting is shown as follows.
+
+```
+parser.add_argument('--maxlen', dest='maxlen', type=int, default=100)
+parser.add_argument('--layer', dest='layer', type=str, default="biLSTM")
+parser.add_argument('--rateid', dest='rateid', type=int, default=0)
+parser.add_argument('--dim', dest='dim', type=int, default=64)
+parser.add_argument('--epochs', dest='epochs', type=int, default=30)
+parser.add_argument('--mode', dest='mode', type=int, default=0)
+parser.add_argument('--folder', dest='folder', type=str, default="0802-error-rule_new")
+parser.add_argument('--ratio', dest='ratio', type=int, default=5)
+parser.add_argument('--sample', dest='sample', type=int, default=1)
+parser.add_argument('--data', dest='data', type=str, default="0802-error-rule/")
+```
+
+Example: `python class_siamese_final.py --data data/USPTO --folder USPTO_judge`
+
+If GPU is availble, then add the script in front: ``CUDA_VISIBLE_DEVICES = the GPU id
+CUDA_VISIBLE_DEVICES = 0 python judge.py --data data/USPTO --folder USPTO_judge``
+
+Then the terminal will show the training and evaluation results.
