@@ -71,6 +71,11 @@ training set and test set. The data format is
 
 
 ## 1.2 data\_for\_practicality\_judgment
+1. [CJHIF_real1](https://github.com/jshmjs45/data_for_science/blob/master/data_for_practicality_judgment/CJHIF_real1.tar.gz)
+2. [USPTO_real1](https://github.com/jshmjs45/data_for_science/blob/master/data_for_practicality_judgment/USPTO_real1.tar.gz)
+3. [CJHIF_rule](https://github.com/jshmjs45/data_for_science/blob/master/data_for_practicality_judgment/CJHIF_rule.tar.gz)
+4. [USPTO_rule](https://github.com/jshmjs45/data_for_science/blob/master/data_for_practicality_judgment/USPTO_rule.tar.gz)
+
 ### 1.2.1 CJHIF_real1
 
 | Case     | train     | dev     | test    |
@@ -79,5 +84,22 @@ training set and test set. The data format is
 | Negative | 7,178     | 798     | 874     |
 
 ### 1.2.2 USPTO_real1
+
+| Case     | train     | dev     | test    |
+| -------- | --------- | ------- | ------- |
+| Positive | 217,992   | 24,221  | 26,919  |
+| Negative | 7,176     | 797     | 877     |
+
 ### 1.2.3 CJHIF_rule
+
+| Case     | train     | dev     | test    |
+| -------- | --------- | ------- | ------- |
+| Positive | 1,428,673 | 158,741 | 89,948  |
+| Negative | 158,689   | 17,632  | 10,052  |
+
 ### 1.2.4 USPTO_rule
+
+| Case     | train     | dev     | test    |
+| -------- | --------- | ------- | ------- |
+| Positive | 217,799   | 24,200  | 90,221  |
+| Negative | 24,421    |2,713    | 9,779   |
