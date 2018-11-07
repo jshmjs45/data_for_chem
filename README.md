@@ -106,7 +106,7 @@ training set and test set. The data format is
 
 
 # 2 codes\_for\_science
-Code instruction accompanying the paper **When SMILES smiles, yield prediction of organic reaction via deep chemical language processing**
+Code instruction accompanying the paper **"Chemical Reaction Practicality Judgment via Deep Symbol Artificial Intelligence"**
 
 ## 2.0 Requirments
 
@@ -196,14 +196,12 @@ data/USPTO/
     	--condition
     	--step
     	--label (for Practicality Judgment)
-    	--rate (for Yield Prediction)
     --test/
     	--reactant
     	--product
     	--condition
     	--step
     	--label (for Practicality Judgment)
-    	--rate (for Yield Prediction)
 ```
 
 The parameters are as follows:
