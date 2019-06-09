@@ -5,6 +5,7 @@ Data and Codes for paper "Chemical Reaction Practicality Judgment via Deep Symbo
 - [Overview](#Overview)
 - [Data](#Data)
 - [Codes](#Codes)
+- [License](#License)
 
 ## 0.1 System Requirements
 ### 0.1.1 Hardware requirements
@@ -31,7 +32,7 @@ You can install the packages by `pip install package_name`.
 All files are encoded in UTF-8 without Byte Order Mark (BOM).
 
 ## 1.1 original\_data
-This zipped file includes three files:
+This zipped file includes five files:
 
 1. [data\_from\_USPTO\_utf8](https://github.com/jshmjs45/data_for_chem/blob/master/original_data/data_from_USPTO_utf8.tar.gz)
 2. [data\_from\_CJHIF\_utf8](https://github.com/jshmjs45/data_for_chem/blob/master/original_data/data_from_CJHIF_utf8.tar.gz)
