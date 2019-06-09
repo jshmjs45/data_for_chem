@@ -1,19 +1,43 @@
-# 1 data\_for\_science
-Data for our paper "Chemical Reaction Practicality Judgment via Deep Symbol Artificial Intelligence".
+# 0 Overview
 
- 1. [original_data](https://github.com/jshmjs45/data_for_science/tree/master/original_data)
- 2. [data\_for\_practicality\_judgment](https://github.com/jshmjs45/data_for_science/tree/master/data_for_practicality_judgment)
+Data and Codes for paper "Chemical Reaction Practicality Judgment via Deep Symbol Artificial Intelligence". The online demo is distributed on http://bcmi.sjtu.edu.cn/home/dl4chem/
+
+- [Overview](#Overview)
+- [Data](#Data)
+- [Codes](#Codes)
+
+## 0.1 System Requirements
+### 0.1.1 Hardware requirements
+Our model requires only a standard computer with enough RAM to support the in-memory operations.
+
+### 0.1.2 Software requirements
+These is no restriction on the system, like windows or linux.
+
+The followings are runtime requirements:
+
+python 2.7 or 3.6
+
+keras 1.2.0
+
+We strongly suggest you to use <code>[conda](https://www.anaconda.com/download/)</code> to control the virtual environment.
+
+You can install the packages by `pip install package_name`.
+
+
+# 1 Data
+ 1. [original_data](https://github.com/jshmjs45/data_for_chem/tree/master/original_data)
+ 2. [data\_for\_practicality\_judgment](https://github.com/jshmjs45/data_for_chem/tree/master/data_for_practicality_judgment)
 
 All files are encoded in UTF-8 without Byte Order Mark (BOM).
 
 ## 1.1 original\_data
 This zipped file includes three files:
 
-1. [data\_from\_USPTO\_utf8](https://github.com/jshmjs45/data_for_science/blob/master/original_data/data_from_USPTO_utf8.tar.gz)
-2. [data\_from\_CJHIF\_utf8](https://github.com/jshmjs45/data_for_science/blob/master/original_data/data_from_CJHIF_utf8.tar.gz)
-3. [data\_from\_ChemicalAI\_Rule\_utf8](https://github.com/jshmjs45/data_for_science/blob/master/original_data/data_from_ChemicalAI_Rule_utf8.tar.gz)
-4. [data\_from\_ChemicalAI\_Real\_1\_utf8](https://github.com/jshmjs45/data_for_science/blob/master/original_data/data_from_ChemicalAI_Real_1_utf8.tar.gz)
-5. [data\_from\_ChemicalAI\_Real\_2\_utf8](https://github.com/jshmjs45/data_for_science/blob/master/original_data/data_from_ChemicalAI_Real_2_utf8.tar.gz)
+1. [data\_from\_USPTO\_utf8](https://github.com/jshmjs45/data_for_chem/blob/master/original_data/data_from_USPTO_utf8.tar.gz)
+2. [data\_from\_CJHIF\_utf8](https://github.com/jshmjs45/data_for_chem/blob/master/original_data/data_from_CJHIF_utf8.tar.gz)
+3. [data\_from\_ChemicalAI\_Rule\_utf8](https://github.com/jshmjs45/data_for_chem/blob/master/original_data/data_from_ChemicalAI_Rule_utf8.tar.gz)
+4. [data\_from\_ChemicalAI\_Real\_1\_utf8](https://github.com/jshmjs45/data_for_chem/blob/master/original_data/data_from_ChemicalAI_Real_1_utf8.tar.gz)
+5. [data\_from\_ChemicalAI\_Real\_2\_utf8](https://github.com/jshmjs45/data_for_chem/blob/master/original_data/data_from_ChemicalAI_Real_2_utf8.tar.gz)
 
 
 ### 1.1.1 data\_from\_USPTO_utf8 
@@ -62,7 +86,9 @@ laboratories. After data deduplication and canonicalization, it remained 8,797 r
 The data format is 
 >reactants>>products
 
-###	1.1.5. data\_from\_ChemicalAI\_Real\_2\_utf8 
+###	1.1.5. data\_from\_ChemicalAI\_Real\_2\_utf8 (for final test)
+**Real reactions from Chemical.AI (Chemical.AI-Real-2)**
+
 24,514 real reactions from chemical experiment record of Chemical.AI partner laboratories,
 in which there are 16,137 positive reactions and 8,377 negative reactions, where
 the productivity of negative reactions is 0%. This data set is equally split into two parts:
@@ -71,10 +97,12 @@ training set and test set. The data format is
 
 
 ## 1.2 data\_for\_practicality\_judgment
-1. [CJHIF_real1](https://github.com/jshmjs45/data_for_science/blob/master/data_for_practicality_judgment/CJHIF_real1.tar.gz)
-2. [USPTO_real1](https://github.com/jshmjs45/data_for_science/blob/master/data_for_practicality_judgment/USPTO_real1.tar.gz)
-3. [CJHIF_rule](https://github.com/jshmjs45/data_for_science/blob/master/data_for_practicality_judgment/CJHIF_rule.tar.gz)
-4. [USPTO_rule](https://github.com/jshmjs45/data_for_science/blob/master/data_for_practicality_judgment/USPTO_rule.tar.gz)
+For practicality judgment, we let the two positive sets collocate with the two negative dataset to form four combinations.
+
+1. [CJHIF_real1](https://github.com/jshmjs45/data_for_chem/blob/master/data_for_practicality_judgment/CJHIF_real1.tar.gz)
+2. [USPTO_real1](https://github.com/jshmjs45/data_for_chem/blob/master/data_for_practicality_judgment/USPTO_real1.tar.gz)
+3. [CJHIF_rule](https://github.com/jshmjs45/data_for_chem/blob/master/data_for_practicality_judgment/CJHIF_rule.tar.gz)
+4. [USPTO_rule](https://github.com/jshmjs45/data_for_chem/blob/master/data_for_practicality_judgment/USPTO_rule.tar.gz)
 
 ### 1.2.1 CJHIF_real1
 
@@ -104,24 +132,7 @@ training set and test set. The data format is
 | Positive | 217,799   | 24,200  | 90,221  |
 | Negative | 24,421    |2,713    | 9,779   |
 
-
-# 2 codes\_for\_science
-Code instruction accompanying the paper **"Chemical Reaction Practicality Judgment via Deep Symbol Artificial Intelligence"**
-
-## 2.0 Requirments
-
-These is no restriction on the system, like windows or linux.
-
-The followings are runtime requirements:
-
-python 2.7 or 3.6
-
-keras 1.2.0
-
-We strongly suggest you to use <code>[conda](https://www.anaconda.com/download/)</code> to control the virtual environment.
-
-You can install the packages by `pip install package_name`.
-
+# 2 Codes
 
 ## 2.1 Codes for data preprocessing
 1. convert_file.py 
@@ -265,3 +276,8 @@ If GPU is availble, then add the script in front: ``CUDA_VISIBLE_DEVICES = the G
 CUDA_VISIBLE_DEVICES = 0 python class_siamese_final.py --data data/USPTO_Rule --folder USPTO_Rule``
 
 Then the terminal will show the training and evaluation results.
+
+
+# 3 License
+
+This project is covered under the **Apache 2.0 License**.
