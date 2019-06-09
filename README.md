@@ -280,4 +280,4 @@ Then the terminal will show the training and evaluation results.
 
 # 3 License
 
-This project is covered under the **Apache 2.0 License**.
+This project is covered under the **MIT License**.
