@@ -1,47 +1,147 @@
-# 0 Overview
+# Overview
 
-Data and Codes for paper "Chemical Reaction Practicality Judgment via Deep Symbol Artificial Intelligence". The online demo is distributed on http://bcmi.sjtu.edu.cn/home/dl4chem/
+**Data** and **codes** for paper "Chemical Reaction Practicality Judgment via Deep Symbol Artificial Intelligence". 
+The online demo is distributed on http://bcmi.sjtu.edu.cn/home/dl4chem/
 
 - [Overview](#Overview)
 - [Data](#Data)
+- [User Guide](#User Guide)
 - [Codes](#Codes)
 - [License](#License)
 
-## 0.1 System Requirements
-### 0.1.1 Hardware requirements
+
+# User Guide
+
+## System Requirements
+### Hardware requirements
 Our model requires only a standard computer with enough RAM to support the in-memory operations.
 
-### 0.1.2 Software requirements
-These is no restriction on the system, like windows or linux.
+### Software requirements
+These is no restriction on the system, like windows or linux, but we recommend **Ubuntu 16.04**.
 
 The followings are runtime requirements:
 
-python 2.7 or 3.6
-
-keras 1.2.0
-
-We strongly suggest you to use <code>[conda](https://www.anaconda.com/download/)</code> to control the virtual environment.
-
-You can install the packages by `pip install package_name`.
+1. python 2.7 or higher
+2. [keras](https://github.com/keras-team/keras) 1.2.0 or higher
+3. [TensorFlow](https://www.tensorflow.org/install/) 0.9.0 or higher (keras backend engines)
+3. [RDKit](http://www.rdkit.org/docs/index.html)
+4. [cuDNN](https://docs.nvidia.com/deeplearning/sdk/cudnn-install/) (recommended if you plan on running Keras on GPU).
 
 
-# 1 Data
+### Enviroment setup
+We strongly suggest you to use <code>[conda](https://www.anaconda.com/download/)</code> to control the virtual environment. 
+```
+wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+```
+After installation, we create the `[conda](https://www.anaconda.com/download/)` virtual environment by the following commands:
+```
+conda create -n chem_env python=2.7
+source activate chem_env
+```
+
+
+### Package installation
+You can install the packages by `conda install package_name`.
+```
+conda install keras
+conda install tensorflow
+conda install tensorflow-gpu # recommended 
+conda install numpy
+conda install progressbar
+conda install -c conda-forge rdkit
+```
+
+##Downloading the Package
+
+Because the data are stored with [Git-LFS](https://git-lfs.github.com/), the operating system must setuped with [Git-LFS](https://git-lfs.github.com/).
+
+### Git-LFS installation
+
+``` 
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt-get install git-lfs
+git lfs install 
+```
+
+### Data downloading 
+```
+git lfs clone https://github.com/jshmjs45/data_for_chem.git
+```
+
+Entering the *data\_for\_chem* folder, you may find two folders (data, codes) and two
+files (LICENSE, README.md):
+
+
+1. codes: the source code;
+2. data: data for our model;
+3. LICENSE: license statement;
+4. README.md: the readme formatted with Markdown;
+
+
+
+## Data Preparation
+In this guide, we take the dataset `USPTO_real1` as an example. Enter the `data/data_for_practicality_judgment` folder and unzip the preprocessed file `USPTO_real1.tar.gz`:
+
+```
+cd data_for_chem
+tar -xzvf data/data_for_practicality_judgment/USPTO_real1.tar.gz
+```
+
+Then activate the virtual environmet and process the dataset:
+
+```
+source activate chem_env
+
+python codes/data_process.py --folder USPTO_real1 --data data/data_for_practicality_judgment/USPTO_real1
+```
+
+## Data Formatting and Embedding Generating
+We use `myio.py` to format the input data to fed to the neural network.
+
+```
+python codes/myio.py --folder USPTO_real1`
+```
+
+In the output directory specified in `myio.py` (for example, `data/USPTO`), we obtain the formatted data vocabulary  with two folders, **train/** and **test/** which contain input sequences for training and evaluation . 
+
+##  Practicality Judgment
+
+For Practicality Judgment, we exectute `class_siamese_final.py`:
+
+```python codes/class_siamese_final.py --data USPTO_real1 --folder USPTO_real1```
+
+If GPU is availble, then add the script in front: 
+CUDA_VISIBLE_DEVICES = the GPU id
+```CUDA_VISIBLE_DEVICES=0 python codes/class_siamese_final.py --folder USPTO_real1 --data USPTO_real1 ```
+It the backend of Keras in the congiure file `$HOME/.keras/keras.json` is 'tensorflow', please switch it to 'theano'.
+Then the terminal will show the training and evaluation results.
+
+
+
+
+
+
+
+
+
+# Data
  1. [original_data](https://github.com/jshmjs45/data_for_chem/tree/master/original_data)
  2. [data\_for\_practicality\_judgment](https://github.com/jshmjs45/data_for_chem/tree/master/data_for_practicality_judgment)
 
 All files are encoded in UTF-8 without Byte Order Mark (BOM).
 
-## 1.1 original\_data
+## original\_data
 This zipped file includes five files:
 
-1. [data\_from\_USPTO\_utf8](https://github.com/jshmjs45/data_for_chem/blob/master/original_data/data_from_USPTO_utf8.tar.gz)
-2. [data\_from\_CJHIF\_utf8](https://github.com/jshmjs45/data_for_chem/blob/master/original_data/data_from_CJHIF_utf8.tar.gz)
-3. [data\_from\_ChemicalAI\_Rule\_utf8](https://github.com/jshmjs45/data_for_chem/blob/master/original_data/data_from_ChemicalAI_Rule_utf8.tar.gz)
-4. [data\_from\_ChemicalAI\_Real\_1\_utf8](https://github.com/jshmjs45/data_for_chem/blob/master/original_data/data_from_ChemicalAI_Real_1_utf8.tar.gz)
-5. [data\_from\_ChemicalAI\_Real\_2\_utf8](https://github.com/jshmjs45/data_for_chem/blob/master/original_data/data_from_ChemicalAI_Real_2_utf8.tar.gz)
+1. [data\_from\_USPTO\_utf8](https://github.com/jshmjs45/data_for_chem/original_data/data_from_USPTO_utf8.tar.gz)
+2. [data\_from\_CJHIF\_utf8](https://github.com/jshmjs45/data_for_chem/original_data/data_from_CJHIF_utf8.tar.gz)
+3. [data\_from\_ChemicalAI\_Rule\_utf8](https://github.com/jshmjs45/data_for_chem//original_data/data_from_ChemicalAI_Rule_utf8.tar.gz)
+4. [data\_from\_ChemicalAI\_Real\_1\_utf8](https://github.com/jshmjs45/data_for_chem/original_data/data_from_ChemicalAI_Real_1_utf8.tar.gz)
+5. [data\_from\_ChemicalAI\_Real\_2\_utf8](https://github.com/jshmjs45/data_for_chem/original_data/data_from_ChemicalAI_Real_2_utf8.tar.gz)
 
 
-### 1.1.1 data\_from\_USPTO_utf8 
+### data\_from\_USPTO_utf8 
 **Positive reactions from USPTO (USPTO)**
 
 This public chemical reaction dataset was extracted from the US patents grants and applications dating from 1976 to September 2016 [US patents grants and applications dating from 1976 to September 2016][1] by [Daniel M. Lowe][2]. The portion of granted patents contains 1,808,938 reactions described using SMILES. Such reaction strings are composed of three groups of molecules: the reactants, the reagents, and the products, which are separated by a ‘>’ sign. After data cleaning with RDKit,an open-source cheminformatics and machine learning tool, it remained 269,132 items at
@@ -54,7 +154,7 @@ The data format is
 
 [2]: https://www.repository.cam.ac.uk/handle/1810/244727  "D. M. Lowe, Extraction of chemical structures and reactions from the literature, Ph.D. thesis, University of Cambridge (2012)"
 
-### 1.1.2 data\_from\_CJHIF_utf8 
+### data\_from\_CJHIF_utf8 
 **Positive reactions from CJHIF(CJHIF)**
 
 3,219,165 reactions mined from high impact factor journals3 with reagent, solvent and
@@ -67,7 +167,7 @@ The format of reaction line is
 
 where >> is the separator to separate the left part (reactant) and the right part (product). Different from USPTO, reaction conditions contain the reagents, solvents and catalysts parts.
 
-###	1.1.3. data\_from\_ChemicalAI\_Rule\_utf8
+###	data\_from\_ChemicalAI\_Rule\_utf8
 **Rule-generated negative reactions from Chemical.AI (Chemical.AI-Rule)**
 
 For every product in the positive reaction sets, we adopt a set of chemical rules to generate
@@ -79,7 +179,7 @@ memory limitation, we keep 100K rule-generated negative reactions in our dataset
 The data format is 
 >reactants>>products
 
-###	1.1.4. data\_from\_ChemicalAI\_Real\_1\_utf8
+###	data\_from\_ChemicalAI\_Real\_1\_utf8
 **Real negative reactions from Chemical.AI (Chemical.AI-Real-1)**
 
 12,225 real failed reactions from chemical experiment record of Chemical.AI partner
@@ -87,7 +187,7 @@ laboratories. After data deduplication and canonicalization, it remained 8,797 r
 The data format is 
 >reactants>>products
 
-###	1.1.5. data\_from\_ChemicalAI\_Real\_2\_utf8 (for final test)
+###	data\_from\_ChemicalAI\_Real\_2\_utf8 (for final test)
 **Real reactions from Chemical.AI (Chemical.AI-Real-2)**
 
 24,514 real reactions from chemical experiment record of Chemical.AI partner laboratories,
@@ -97,7 +197,7 @@ training set and test set. The data format is
 >reactants>>products \t yield \t reagents \t SMILES \t reagents name
 
 
-## 1.2 data\_for\_practicality\_judgment
+## data\_for\_practicality\_judgment
 For practicality judgment, we let the two positive sets collocate with the two negative dataset to form four combinations.
 
 1. [CJHIF_real1](https://github.com/jshmjs45/data_for_chem/blob/master/data_for_practicality_judgment/CJHIF_real1.tar.gz)
@@ -105,43 +205,44 @@ For practicality judgment, we let the two positive sets collocate with the two n
 3. [CJHIF_rule](https://github.com/jshmjs45/data_for_chem/blob/master/data_for_practicality_judgment/CJHIF_rule.tar.gz)
 4. [USPTO_rule](https://github.com/jshmjs45/data_for_chem/blob/master/data_for_practicality_judgment/USPTO_rule.tar.gz)
 
-### 1.2.1 CJHIF_real1
+### CJHIF_real1
 
 | Case     | train     | dev     | test    |
 | -------- | --------- | ------- | ------- |
 | Positive | 1,406,259 | 156,251 | 173,624 |
 | Negative | 7,178     | 798     | 874     |
 
-### 1.2.2 USPTO_real1
+### USPTO_real1
 
 | Case     | train     | dev     | test    |
 | -------- | --------- | ------- | ------- |
 | Positive | 217,992   | 24,221  | 26,919  |
 | Negative | 7,176     | 797     | 877     |
 
-### 1.2.3 CJHIF_rule
+###  CJHIF_rule
 
 | Case     | train     | dev     | test    |
 | -------- | --------- | ------- | ------- |
 | Positive | 1,428,673 | 158,741 | 89,948  |
 | Negative | 158,689   | 17,632  | 10,052  |
 
-### 1.2.4 USPTO_rule
+###  USPTO_rule
 
 | Case     | train     | dev     | test    |
 | -------- | --------- | ------- | ------- |
 | Positive | 217,799   | 24,200  | 90,221  |
 | Negative | 24,421    |2,713    | 9,779   |
 
-# 2 Codes
+# Codes
 
-## 2.1 Codes for data preprocessing
+## Data processing
 1. convert_file.py 
 2. clear_file.py
 3. select_file.py
 4. combine_files.py
+5. data_process.py
 
-### 2.1.1 convert_file.py 
+### convert_file.py 
 We canonicalize data without atom mappings by using this code.
 
 The parameters are as follows:
@@ -152,8 +253,8 @@ The parameters are as follows:
 
 Usage: `python convert_file.py [--mode MODE] [--file FILE]`
 
-### 2.1.2 clear_file.py 
-The converted file is cleared by using this coede.
+### clear_file.py 
+The converted file is cleared by using this code.
 
 The parameters are as follows:
 
@@ -163,7 +264,7 @@ The parameters are as follows:
 
 Usage: `python clear_file.py [--mode MODE] [--file FILE]`
 
-### 2.1.3 slelct_file.py 
+### slelct_file.py 
 The cleared file is split into train set and test set by using this code.
 
 The parameters are as follows:
@@ -172,11 +273,11 @@ The parameters are as follows:
 
 **--file** input file path
 
-Usage: `python clear_file.py [--per PER] [--file FILE]`
+Usage: `python slelct_file.py [--per PER] [--file FILE]`
 
-### 2.1.4 combine_files.py
+### combine_files.py
 
-This code combines the positive data and negetive data and split the combined file into train set and test set. 
+This code is used to combine the positive data and negetive data and split the combined file into train set and test set. 
 
 **--per** the ratio of the test set (%)
 
@@ -184,14 +285,23 @@ This code combines the positive data and negetive data and split the combined fi
 
 **--file2** negative file path
 
-Usage: `python clear_file.py [--per PER] [--file1 FILE1] [--file2 FILE2]`
+Usage: `python combine_files.py [--per PER] [--file1 FILE1] [--file2 FILE2]`
+
+### data_process.py
+
+This code is aim to split the train set and test set to the left part and right part, generate the 'reaction step' and segment the reaction tokens. 
+
+**--folder** the folder of the output files
+
+**--data** path of the dataset
+
+Usage: `python data_process.py [--folder FOLDER] [--data data]`
 
 
 
 
 
-
-## 2.2 Data Formatting and Embedding Generating
+## Data Formatting and Embedding Generating
 
 After Unsupervised Tokenization and Reaction Step Generation, we use `myio.py` to format the input data to fed to the neural network.
 
@@ -238,7 +348,7 @@ parser.add_argument('--size', dest='size', type=int, default=100, help='dimensio
 ```
 Example: `python myio.py --folder folder_name`
 
-## 2.3 Practicality Judgment
+## Practicality Judgment
 
 For Practicality Judgment, we exectute `class_siamese_final.py`.
 
@@ -279,6 +389,6 @@ CUDA_VISIBLE_DEVICES = 0 python class_siamese_final.py --data data/USPTO_Rule --
 Then the terminal will show the training and evaluation results.
 
 
-# 3 License
+# License
 
 This project is covered under the **MIT License**.

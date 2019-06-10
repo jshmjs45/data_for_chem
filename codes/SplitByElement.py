@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-'''
-Created on Mon Jul 10 10:26:06 2017
 
-@author: jshmjs45
-'''
 import sys, getopt
 Elements = ['H', 'He', 'Li', 'Be', '', 'C', 'N', 'O', 'F', 'Ne', 'Na', 'Mg', 'Al', 
     'Si', 'P', 'S', 'Cl', 'Ar', 'K', 'Ca', 'Sc', 'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ni', 
@@ -76,6 +72,3 @@ def main(argv):
 
 if __name__ == '__main__':
    main(sys.argv[1:])
-#line = 'CCCCSiNaMg'
-#line = split_line(line)
-#print line
