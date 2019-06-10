@@ -102,17 +102,18 @@ We use `myio.py` to format the input data to fed to the neural network.
 python codes/myio.py --folder USPTO_real1`
 ```
 
-In the output directory specified in `myio.py` (for example, `data/USPTO`), we obtain the formatted data vocabulary  with two folders, **train/** and **test/** which contain input sequences for training and evaluation . 
+In the output directory specified in `myio.py`, the formatted data vocabulary is produced with two folders - **train/** and **test/** which contain input sequences for training and evaluation . 
 
 ##  Practicality Judgment
 
-For Practicality Judgment, we exectute `class_siamese_final.py`:
+For Practicality Judgment, exectute `class_siamese_final.py`:
 
 ```
 python codes/class_siamese_final.py --data USPTO_real1 --folder USPTO_real1
 ```
 
-If GPU is availble, then add the script in front: 
+If GPU is availble, the gpu devices can be restricted:
+ 
 ```
 CUDA_VISIBLE_DEVICES=0 python codes/class_siamese_final.py --folder USPTO_real1 --data USPTO_real1 
 ```
