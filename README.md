@@ -52,7 +52,7 @@ conda install progressbar
 conda install -c conda-forge rdkit
 ```
 
-##Downloading the Package
+## Downloading the Package
 
 Because the data are stored with [Git-LFS](https://git-lfs.github.com/), the operating system must setuped with [Git-LFS](https://git-lfs.github.com/).
 
