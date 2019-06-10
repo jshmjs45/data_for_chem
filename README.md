@@ -92,7 +92,6 @@ Then activate the virtual environmet and process the dataset:
 
 ```
 source activate chem_env
-
 python codes/data_process.py --folder USPTO_real1 --data data/data_for_practicality_judgment/USPTO_real1
 ```
 
@@ -109,12 +108,15 @@ In the output directory specified in `myio.py` (for example, `data/USPTO`), we o
 
 For Practicality Judgment, we exectute `class_siamese_final.py`:
 
-```python codes/class_siamese_final.py --data USPTO_real1 --folder USPTO_real1```
+```
+python codes/class_siamese_final.py --data USPTO_real1 --folder USPTO_real1
+```
 
 If GPU is availble, then add the script in front: 
-CUDA_VISIBLE_DEVICES = the GPU id
-```CUDA_VISIBLE_DEVICES=0 python codes/class_siamese_final.py --folder USPTO_real1 --data USPTO_real1 ```
-It the backend of Keras in the congiure file `$HOME/.keras/keras.json` is 'tensorflow', please switch it to 'theano'.
+```
+CUDA_VISIBLE_DEVICES=0 python codes/class_siamese_final.py --folder USPTO_real1 --data USPTO_real1 
+```
+
 Then the terminal will show the training and evaluation results.
 
 
