@@ -103,6 +103,7 @@ python codes/myio.py --folder USPTO_real1`
 ```
 
 In the output directory specified in `myio.py`, the formatted data vocabulary is produced with two folders - **train/** and **test/** which contain input sequences for training and evaluation. 
+
 The steps above cost about 10 minutes.
 
 ##  Practicality Judgment
@@ -121,6 +122,8 @@ CUDA_VISIBLE_DEVICES=0 python codes/class_siamese_final.py --folder USPTO_real1 
 ```
 
 Then the terminal will show the training and evaluation results.
+
+For one epoch, the model normally takes about 10 minutes with GPU device.
 
 
 
