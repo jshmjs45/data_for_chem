@@ -25,8 +25,8 @@ parser.add_argument('--rateid', dest='rateid', type=int, default=0)
 parser.add_argument('--dim', dest='dim', type=int, default=64)
 parser.add_argument('--epochs', dest='epochs', type=int, default=50)
 parser.add_argument('--mode', dest='mode', type=int, default=0)
-parser.add_argument('--folder', dest='folder', type=str, default="CJHIF-rule")
-parser.add_argument('--data', dest='data', type=str, default="/home/zhangzs/chemistry/USPTO-rule")
+parser.add_argument('--folder', dest='folder', type=str, default="USPTO-real1")
+parser.add_argument('--data', dest='data', type=str, default="USPTO-real1")
 
 args = parser.parse_args()
 params = vars(args)
@@ -39,10 +39,12 @@ layer = params['layer']
 dim = params['dim']
 epochs = params['epochs']
 folder = params['folder']
+
+if not os.path.exists('logs/'):  os.makedirs('logs/')
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
                     datefmt='%m-%d %H:%M',
-                    filename=datetime.now().strftime('logs/mylogfile_%H_%M_%d_%m_%Y' + "_" + folder + ".log"),
+                    filename=datetime.now().strftime('logs/'+folder + '_%H_%M_%d_%m_%Y.log'),
                     filemode='w')
 
 logging.info(str(params))

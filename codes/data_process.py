@@ -5,6 +5,7 @@ import random
 import SplitByElement
 import Steps
 import argparse
+import progressbar
 
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument('--folder', dest='folder', type=str, default='USPTO_real1', help='folder of the output files')
@@ -28,11 +29,12 @@ def write_file(folder,fin):
     writer2 = open(folder+'/'+fout+'.r', 'w')
     writer3 = open(folder+'/'+fout+'.steps', 'w')
     writer4 = open(folder+'/'+fout+'.label', 'w')
-    id = 0
+
     lines = reader.readlines()
     print(len(lines))
-    for line in lines:    
-        line = line.strip('\n\r')
+    p = progressbar.ProgressBar()
+    for i in p(range(len(lines))):  
+        line = lines[i]
         strs = line.split("\t");
         reaction = strs[0]
         label = '1'
@@ -56,10 +58,6 @@ def write_file(folder,fin):
         writer3.flush()
         writer4.flush()
 
-        id += 1
-        if id%1000 == 0: print(id)
-        
-    print(id)
     print('over!')
 
     
