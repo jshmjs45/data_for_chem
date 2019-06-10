@@ -3,11 +3,11 @@
 **Data** and **codes** for paper "Chemical Reaction Practicality Judgment via Deep Symbol Artificial Intelligence". 
 The online demo is distributed on http://bcmi.sjtu.edu.cn/home/dl4chem/
 
-- [Overview](#Overview)
-- [Data](#Data)
-- [User Guide](#User Guide)
-- [Codes](#Codes)
-- [License](#License)
+- [Overview](#overview)
+- [Data](#data)
+- [User Guide](#user-guide)
+- [Codes](#codes)
+- [License](#license)
 
 
 # User Guide
