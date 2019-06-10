@@ -106,6 +106,7 @@ In the output directory specified in `myio.py`, the formatted data vocabulary is
 
 ##  Practicality Judgment
 
+
 For Practicality Judgment, exectute `class_siamese_final.py`:
 
 ```
@@ -305,6 +306,7 @@ Usage: `python data_process.py [--folder FOLDER] [--data data]`
 
 
 ## Data Formatting and Embedding Generating
+### myio.py
 
 After Unsupervised Tokenization and Reaction Step Generation, we use `myio.py` to format the input data to fed to the neural network.
 
@@ -352,6 +354,7 @@ parser.add_argument('--size', dest='size', type=int, default=100, help='dimensio
 Example: `python myio.py --folder folder_name`
 
 ## Practicality Judgment
+### class\_siamese\_final.py
 
 For Practicality Judgment, we exectute `class_siamese_final.py`.
 
