@@ -34,11 +34,10 @@ def write_file(folder,fin):
     print(len(lines))
     p = progressbar.ProgressBar()
     for i in p(range(len(lines))):  
-        line = lines[i]
+        line = lines[i].strip()
         strs = line.split("\t");
         reaction = strs[0]
-        label = '1'
-        if strs[1]=='0': label = '0'
+        label = strs[1]
         strss = reaction.split(">")
         if not len(strss)==3: continue
         line_l = SplitByElement.split_line(strss[0]);
