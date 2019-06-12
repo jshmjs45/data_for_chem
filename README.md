@@ -99,7 +99,7 @@ python codes/data_process.py --folder USPTO_real1 --data data/data_for_practical
 We use `myio.py` to format the input data to feed to the neural network.
 
 ```
-python codes/myio.py --folder USPTO_real1`
+python codes/myio.py --folder USPTO_real1
 ```
 
 In the output directory specified in `myio.py`, the formatted data vocabulary is produced with two folders - **train/** and **test/** which contain input sequences for training and evaluation. 
