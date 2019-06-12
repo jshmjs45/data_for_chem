@@ -4,8 +4,8 @@
 The online demo is distributed on http://bcmi.sjtu.edu.cn/home/dl4chem/
 
 - [Overview](#overview)
-- [Data](#data)
 - [User Guide](#user-guide)
+- [Data](#data)
 - [Codes](#codes)
 - [License](#license)
 
