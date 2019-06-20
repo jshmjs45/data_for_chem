@@ -34,7 +34,7 @@ We strongly suggest you to use [`conda`](https://www.anaconda.com/download/) to 
 wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 ```
-After installation, we create the `[conda](https://www.anaconda.com/download/)` virtual environment by the following commands:
+After installation, we create the [`conda`](https://www.anaconda.com/download/) virtual environment by the following commands:
 ```
 conda create -n chem_env python=2.7
 source activate chem_env
