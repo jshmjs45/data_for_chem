@@ -29,7 +29,7 @@ The followings are runtime requirements:
 
 
 ### Enviroment setup
-We strongly suggest you to use <code>[conda](https://www.anaconda.com/download/)</code> to control the virtual environment. 
+We strongly suggest you to use [`conda`](https://www.anaconda.com/download/) to control the virtual environment. 
 ```
 wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
