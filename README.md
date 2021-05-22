@@ -134,8 +134,8 @@ For one epoch, the model normally takes about 10 minutes with GPU device.
 
 
 # Data
- 1. [original_data](https://github.com/jshmjs45/data_for_chem/tree/master/original_data)
- 2. [data\_for\_practicality\_judgment](https://github.com/jshmjs45/data_for_chem/tree/master/data_for_practicality_judgment)
+ 1. [original_data](https://figshare.com/articles/dataset/original_data_zip/14647095)
+ 2. [data\_for\_practicality\_judgment](https://figshare.com/articles/dataset/data_for_practicality_judgment/14647167)
 
 All files are encoded in UTF-8 without Byte Order Mark (BOM).
 
