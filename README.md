@@ -28,7 +28,7 @@ The followings are runtime requirements:
 4. [cuDNN](https://docs.nvidia.com/deeplearning/sdk/cudnn-install/) (recommended if you plan on running Keras on GPU).
 
 
-### Enviroment setup
+### Environment setup
 We strongly suggest you to use [`conda`](https://www.anaconda.com/download/) to control the virtual environment. 
 ```
 wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -88,7 +88,7 @@ cd data_for_chem
 tar -xzvf data/data_for_practicality_judgment/USPTO_real1.tar.gz
 ```
 
-Then activate the virtual environmet and process the dataset:
+Then activate the virtual environment and process the dataset:
 
 ```
 source activate chem_env
@@ -115,7 +115,7 @@ For Practicality Judgment, execute `class_siamese_final.py`:
 python codes/class_siamese_final.py --data USPTO_real1 --folder USPTO_real1
 ```
 
-If GPU is availble, the gpu devices can be restricted:
+If GPU is available, the gpu devices can be restricted:
  
 ```
 CUDA_VISIBLE_DEVICES=0 python codes/class_siamese_final.py --folder USPTO_real1 --data USPTO_real1 
@@ -134,8 +134,9 @@ For one epoch, the model normally takes about 10 minutes with GPU device.
 
 
 # Data
- 1. [original_data](https://figshare.com/articles/dataset/original_data_zip/14647095)
- 2. [data\_for\_practicality\_judgment](https://figshare.com/articles/dataset/data_for_practicality_judgment/14647167)
+ 
+ <mark>The data is currently not available due to copyright regulations set by the collaborating company. If you require access, please feel free to email me at jshmjs45@gmail.com.(2023/08/04) </mark>
+
 
 All files are encoded in UTF-8 without Byte Order Mark (BOM).
 
@@ -187,7 +188,7 @@ memory limitation, we keep 100K rule-generated negative reactions in our dataset
 The data format is 
 >reactants>>products
 
-###    data\_from\_ChemicalAI\_Real\_1\_utf8
+###    data\_from\_ChemicalAI\_Real\_1\_utf8 ( according the copyright rule, it is deleted)
 **Real negative reactions from Chemical.AI (Chemical.AI-Real-1)**
 
 12,225 real failed reactions from chemical experiment record of Chemical.AI partner
@@ -393,7 +394,7 @@ parser.add_argument('--data', dest='data', type=str, default="0802-error-rule/")
 
 Example: `python class_siamese_final.py --data data/USPTO --folder USPTO_judge`
 
-If GPU is availble, then add the script in front: ``CUDA_VISIBLE_DEVICES = the GPU id
+If GPU is available, then add the script in front: ``CUDA_VISIBLE_DEVICES = the GPU id
 CUDA_VISIBLE_DEVICES = 0 python class_siamese_final.py --data data/USPTO_Rule --folder USPTO_Rule``
 
 Then the terminal will show the training and evaluation results.
