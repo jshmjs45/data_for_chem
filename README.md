@@ -1,7 +1,6 @@
 # Overview
 
 **Data** and **codes** for the paper "Chemical Reaction Practicality Judgment via Deep Symbol Artificial Intelligence". 
-The online demo is distributed on http://202.120.38.239/home/dl4chem
 
 - [Overview](#overview)
 - [User Guide](#user-guide)
@@ -135,19 +134,18 @@ For one epoch, the model normally takes about 10 minutes with GPU device.
 
 # Data
  
- <mark>The data is currently not available due to copyright regulations set by the collaborating company. If you require access, please feel free to email me at jshmjs45@gmail.com.(2023/08/04) </mark>
-
+**The data is currently not available due to copyright regulations set by the collaborating company. If you require access, please feel free to email me at jshmjs45@gmail.com. (2023/08/04)**
 
 All files are encoded in UTF-8 without Byte Order Mark (BOM).
 
 ## original\_data
 This zipped file includes five files:
 
-1. [data\_from\_USPTO\_utf8](https://github.com/jshmjs45/data_for_chem/original_data/data_from_USPTO_utf8.tar.gz)
-2. [data\_from\_CJHIF\_utf8](https://github.com/jshmjs45/data_for_chem/original_data/data_from_CJHIF_utf8.tar.gz)
-3. [data\_from\_ChemicalAI\_Rule\_utf8](https://github.com/jshmjs45/data_for_chem//original_data/data_from_ChemicalAI_Rule_utf8.tar.gz)
-4. [data\_from\_ChemicalAI\_Real\_1\_utf8](https://github.com/jshmjs45/data_for_chem/original_data/data_from_ChemicalAI_Real_1_utf8.tar.gz)
-5. [data\_from\_ChemicalAI\_Real\_2\_utf8](https://github.com/jshmjs45/data_for_chem/original_data/data_from_ChemicalAI_Real_2_utf8.tar.gz)
+1. data\_from\_USPTO\_utf8
+2. data\_from\_CJHIF\_utf8
+3. data\_from\_ChemicalAI\_Rule\_utf8
+4. data\_from\_ChemicalAI\_Real\_1\_utf8
+5. data\_from\_ChemicalAI\_Real\_2\_utf8
 
 
 ### data\_from\_USPTO_utf8 
